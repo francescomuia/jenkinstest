@@ -1,22 +1,4 @@
-// docs: https://jenkins.io/doc/pipeline/steps/credentials-binding/
-
-pipeline {
-  agent any
-  stages {
-    stage("Checkout") { 
-        steps{
-            checkout([
-                $class: 'GitSCM',
-                branches: scm.branches,
-                doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
-                extensions: scm.extensions,
-                userRemoteConfigs: scm.userRemoteConfigs,
-                credentialsId: 'sicve'
-            ])
-        }
-    }
-
-    stage('usernamePassword') {
+stage('usernamePassword') {
       steps {
         script {
           withCredentials([
@@ -32,5 +14,3 @@ pipeline {
         }
       }
     }
-  }
-}
