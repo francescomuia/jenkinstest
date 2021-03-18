@@ -9,9 +9,11 @@ pipeline {
          branches: scm.branches,
          doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
          extensions: scm.extensions,
-         userRemoteConfigs: scm.userRemoteConfigs
+         userRemoteConfigs: scm.userRemoteConfigs,
+         credentialsId: 'sicve'
     ])
-    },
+    }
+    
     stage('usernamePassword') {
       steps {
         script {
