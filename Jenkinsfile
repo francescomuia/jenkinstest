@@ -3,7 +3,16 @@
 pipeline {
   agent any
   stages {
-
+    stage("Checkout") { 
+        checkout([
+         $class: 'GitSCM',
+         branches: scm.branches,
+         doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+         extensions: scm.extensions,
+         userRemoteConfigs: scm.userRemoteConfigs,
+         credentialsId: 'sicve'
+    ])
+    },
     stage('usernamePassword') {
       steps {
         script {
