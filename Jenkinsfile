@@ -4,6 +4,7 @@ pipeline {
   agent any
   stages {
     stage("Checkout") { 
+        steps{
         checkout([
          $class: 'GitSCM',
          branches: scm.branches,
@@ -11,9 +12,10 @@ pipeline {
          extensions: scm.extensions,
          userRemoteConfigs: scm.userRemoteConfigs,
          credentialsId: 'sicve'
+        }
     ])
     }
-    
+
     stage('usernamePassword') {
       steps {
         script {
