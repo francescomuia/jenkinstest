@@ -2,7 +2,6 @@
 
 
     stage('usernamePassword') {
-      steps {
         script {
           withCredentials([
             usernamePassword(credentialsId: 'sicve',
@@ -15,6 +14,6 @@
             print 'password.collect { it }=' + password.collect { it }
           }
         }
-      }
+      
     }
   
