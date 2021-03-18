@@ -1,16 +1,3 @@
-stage('usernamePassword') {
-      steps {
-        script {
-          withCredentials([
-            usernamePassword(credentialsId: 'sicve',
-              usernameVariable: 'username',
-              passwordVariable: 'password')
-          ]) {
-            print 'username=' + username + 'password=' + password
-
-            print 'username.collect { it }=' + username.collect { it }
-            print 'password.collect { it }=' + password.collect { it }
-          }
-        }
-      }
-    }
+stage('Project 1 Stage') {
+    echo 'Project 1 Stage'
+}
